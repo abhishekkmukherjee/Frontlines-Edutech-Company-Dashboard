@@ -1,49 +1,185 @@
-# Getting Started with Create React App
+# Company Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive React application for displaying and filtering company data. Built with React.js, Tailwind CSS, and featuring advanced filtering, sorting, and pagination capabilities.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Advanced Filtering**: Filter companies by name, industry, and location
+- **Smart Search**: Search across company names and descriptions
+- **Flexible Sorting**: Sort by name, employee count, founding year, or industry
+- **Multiple View Modes**: Switch between card and table layouts
+- **Pagination**: Navigate through large datasets efficiently
+- **Loading States**: Smooth loading animations and error handling
+- **Modern UI**: Clean, professional interface built with Tailwind CSS
 
-### `npm start`
+## 🛠️ Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js (Hooks, Context API)
+- **Styling**: Tailwind CSS
+- **State Management**: React Hooks (useState, useEffect, useMemo)
+- **Data**: Mock API with simulated network delays
+- **Icons**: Heroicons (via Tailwind)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd company-dashboard
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏗️ Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── components/          # Reusable UI components
+│   ├── CompanyCard.js   # Individual company card component
+│   ├── CompanyTable.js  # Table view for companies
+│   ├── FilterControls.js # Search and filter controls
+│   ├── LoadingSpinner.js # Loading state component
+│   └── Pagination.js    # Pagination component
+├── data/
+│   └── mockData.js      # Mock company data and constants
+├── hooks/
+│   └── useCompanies.js  # Custom hook for company data management
+├── services/
+│   └── api.js           # API service layer (mock implementation)
+├── App.js               # Main application component
+├── index.js             # Application entry point
+└── index.css            # Global styles and Tailwind imports
+```
 
-### `npm run eject`
+## 🎯 Key Features Explained
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Filtering System
+- **Text Search**: Real-time search across company names and descriptions
+- **Industry Filter**: Dropdown to filter by specific industries
+- **Location Filter**: Dropdown to filter by company locations
+- **Combined Filters**: All filters work together seamlessly
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Sorting Options
+- Sort by company name (A-Z or Z-A)
+- Sort by employee count (ascending/descending)
+- Sort by founding year (oldest/newest first)
+- Sort by industry (alphabetical)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### View Modes
+- **Card View**: Visual cards showing company details with icons
+- **Table View**: Compact table format for quick scanning
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Pagination
+- Configurable items per page (currently set to 6)
+- Smart pagination controls with page numbers
+- Results summary showing current range
+- Smooth scrolling to top on page change
 
-## Learn More
+## 🔧 Customization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Adding New Companies
+Edit `src/data/mockData.js` to add new companies to the dataset:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+{
+  id: 13,
+  name: "Your Company Name",
+  industry: "Your Industry",
+  location: "Your Location",
+  employees: 1000,
+  founded: 2020,
+  revenue: "$10M",
+  description: "Your company description"
+}
+```
+
+### Modifying Filters
+Update the `industries` and `locations` arrays in `mockData.js` to add new filter options.
+
+### Styling Changes
+The project uses Tailwind CSS. Modify component classes or extend the Tailwind configuration in `tailwind.config.js`.
+
+## 📱 Responsive Design
+
+The application is fully responsive with breakpoints:
+- **Mobile**: Single column layout, simplified navigation
+- **Tablet**: Two-column card grid, condensed filters
+- **Desktop**: Three-column card grid, full feature set
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Deploy to Vercel
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run: `vercel`
+3. Follow the prompts
+
+### Deploy to Netlify
+1. Build the project: `npm run build`
+2. Drag and drop the `build` folder to Netlify
+3. Or connect your GitHub repository for automatic deployments
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+## 📈 Performance Optimizations
+
+- **useMemo**: Expensive filtering and sorting operations are memoized
+- **Pagination**: Large datasets are split into manageable chunks
+- **Lazy Loading**: Components render only visible items
+- **Debounced Search**: Search input has built-in debouncing (can be added)
+
+## 🔮 Future Enhancements
+
+- [ ] Add company detail modal/page
+- [ ] Implement infinite scroll option
+- [ ] Add data export functionality (CSV/PDF)
+- [ ] Include company logos and images
+- [ ] Add advanced analytics dashboard
+- [ ] Implement real backend API integration
+- [ ] Add user authentication and favorites
+- [ ] Include company comparison feature
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -am 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Author
+
+Built with ❤️ by [Your Name]
+
+---
+
+**Live Demo**: [Add your deployment URL here]
+**Repository**: [Add your GitHub repository URL here]
 
 ### Code Splitting
 
